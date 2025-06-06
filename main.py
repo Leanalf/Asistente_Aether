@@ -3,14 +3,14 @@ from assistant.command_handler import handle_command
 from assistant.tts import tts
 
 def main():
-    tts.speak("Asistente iniciado. Esperando tu comando de voz.")
+    tts.speak("Asistente Aether iniciado. Di 'ayuda' para ver comandos.")
     while True:
         command = listen_command()
-        if command == "":
+        if not command:
             continue
         
-        if "salir" in command.lower():
-            tts.speak("Saliendo del asistente. ¡Hasta luego!")
+        if "salir" in command or "terminar" in command:
+            tts.speak("Hasta luego, usuario.")
             break
         
         handle_command(command)
