@@ -43,7 +43,7 @@ def get_open_apps() -> Dict[str, str]:
             for app_name, app_path in APP_PATHS.items():
                 if (process_name == os.path.basename(app_path).lower() or 
                     (process_exe and os.path.exists(process_exe) and 
-                     os.path.samefile(process_exe, app_path))):
+                    os.path.samefile(process_exe, app_path))):
                     _open_apps[app_name] = "running"
         except (psutil.NoSuchProcess, psutil.AccessDenied, FileNotFoundError):
             continue
